@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Detran</title>
+    <title>Inserir vendedor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
@@ -23,9 +23,6 @@
    include '../../view/menu/cabecalho.php';
 
 ?>
-<br>
-<br>
-<br>
 <br> 
         <form method="POST" action="../../controller/controllerVendedor.php">     
 
@@ -55,7 +52,7 @@
 
             <div class="form-label">
             <div class=" col-md-6 offset-md-3">  
-            <br><label for="formGroupExampleInput2" class="form-label">Loja:</label><br>  
+            <label for="formGroupExampleInput2" class="form-label">Selecione a loja:</label>  
                     <select name="loja">
                         <?php
                             $dao = new LojaDao($mysql);
@@ -72,22 +69,38 @@
             </div>
 
             <div class="form-label">
-            <div class=" col-md-6 offset-md-3">  
-            <br><label for="formGroupExampleInput2" class="form-label">Endereco:</label><br>  
-                    <select name="endereco">
-                        <?php
-                            $dao = new EnderecoDao($mysql);
-                            $lista = $dao->buscarTodos();
-                            foreach($lista as $endereco)
-                            {
-                        ?>
-                            <option class="form-control-lg" value="<?=$endereco['idtb_endereco']?>"><?=$endereco['bairro']?></option>
-                        <?php
-                            }
-                        ?>        
-                    </select><br>
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Rua:</label>
+                <input type="text" name="rua" class="form-control" placeholder="Digite o rua da loja:">
+            </div>          
+
             </div>
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Numero:</label>
+                <input type="text" name="numero" class="form-control" placeholder="Digite o numero da loja:">
+            </div> 
             </div>
+
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Bairro:</label>
+                <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro da loja:">
+            </div> 
+            </div>
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Cep:</label>
+                <input type="text" name="cep" class="form-control" placeholder="Digite o cep da loja:">
+            </div> 
+            </div>
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Cidade:</label>
+                <input type="text" name="cidade" class="form-control" placeholder="Digite a cidade da loja:">
+            </div> 
+            </div>
+            <br>
         
             <div class="form-group">
             <div class=" col-md-6 offset-md-3">  

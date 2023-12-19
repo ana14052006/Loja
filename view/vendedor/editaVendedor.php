@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Detran</title>
+    <title>Editar vendedor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
@@ -25,11 +25,13 @@
    $id = $_GET['id'];
    $dao = new VendedorDao($mysql);
    $vendedor = $dao->buscarPorId($id);
+
+
+   $daoEndereco = new EnderecoDao($mysql);
+   $endereco = $daoEndereco->buscarPorId($vendedor['tb_endereco_idtb_endereco']);
+   
     
 ?>
-<br>
-<br>
-<br>
 <br> 
         <form method="POST" action="../../controller/controllerVendedor.php">     
 
@@ -57,45 +59,70 @@
     
             <div class="form-label">
             <div class=" col-md-6 offset-md-3">  
-            <br><label for="formGroupExampleInput2" class="form-label">Loja:</label><br>  
-                    <select name="infracao">
+            <br><label for="formGroupExampleInput2" class="form-label">Vendedor da Loja</label> 
+                    <select name="loja">
                         <?php
                             $dao = new LojaDao($mysql);
                             $lista = $dao->buscarTodos();
                             foreach($lista as $loja)
                             {
+                                if ($vendedor['tb_loja_idtb_loja'] == $loja['idtb_loja']){
                         ?>
-                            <option class="form-control-lg" value="<?=$loja['idtb_loja']?>"><?=$loja['nome']?></option>
-                        <?php
+                            <option class="form-control-lg" value="<?=$loja['idtb_loja']?>" selected><?=$loja['nome']?></option>
+                            <?php
+                                }
+                                else{
+                            ?>
+                                <option class="form-control-lg" value="<?=$loja['idtb_loja']?>"><?=$loja['nome']?></option>
+                            <?php   
+                                }
                             }
-                        ?>        
+                            ?>        
                     </select><br>
             </div>
             </div>
 
+
             <div class="form-label">
-            <div class=" col-md-6 offset-md-3">  
-            <br><label for="formGroupExampleInput2" class="form-label">Endereco:</label><br>  
-                    <select name="infracao">
-                        <?php
-                            $dao = new EnderecoDao($mysql);
-                            $lista = $dao->buscarTodos();
-                            foreach($lista as $endereco)
-                            {
-                        ?>
-                            <option class="form-control-lg" value="<?=$endereco['idtb_endereco']?>"><?=$endereco['bairro']?></option>
-                        <?php
-                            }
-                        ?>        
-                    </select><br>
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Rua:</label>
+                <input type="text" name="rua" value="<?=$endereco['rua']?>" class="form-control" placeholder="Digite o rua da loja:">
+            </div>          
+
             </div>
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Numero:</label>
+                <input type="text" name="numero" value="<?=$endereco['numero']?>" class="form-control" placeholder="Digite o numero da loja:">
+            </div> 
             </div>
-    
+
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Bairro:</label>
+                <input type="text" name="bairro" value="<?=$endereco['bairro']?>" class="form-control" placeholder="Digite o bairro da loja:">
+            </div> 
+            </div>
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Cep:</label>
+                <input type="text" name="cep" value="<?=$endereco['cep']?>" class="form-control" placeholder="Digite o cep da loja:">
+            </div> 
+            </div>
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Cidade:</label>
+                <input type="text" name="cidade" value="<?=$endereco['cidade']?>" class="form-control" placeholder="Digite a cidade da loja:">
+            </div> 
+            </div>
+            <br>   
 
             <div class="form-group">
             <div class=" col-md-6 offset-md-3">  
                 <br>
                 <input type="hidden" name="flag" value ="1">
+                <input type="hidden" name="id_endereco" value ="<?=$vendedor['tb_endereco_idtb_endereco']?>">
+                <input type="hidden" name="id" value ="<?=$id?>">
                 <input type="submit" name="btn" value="Cancelar" class="btn btn-outline-danger">&nbsp;
                 <input type="submit" name="btn" value="Alterar" class="btn btn-outline-success">&nbsp;   
             </div>

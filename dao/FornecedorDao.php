@@ -11,11 +11,9 @@
         }
          
         public function cadastrar($fornecedor):void{   
-
-        $resultado =  $this->mysql->prepare("insert into tb_fornecedor (nome, tb_loja_idtb_loja) values (?,?)");
-        $resultado->bind_param('ss',$fornecedor->getNome(), $fornecedor->getLoja());
-        $resultado->execute();
-
+            $resultado =  $this->mysql->prepare("insert into tb_fornecedor (nome, tb_loja_idtb_loja) values (?,?)");
+            $resultado->bind_param('ss',$fornecedor->getNome(), $fornecedor->getLoja()->getId());
+            $resultado->execute();
         }
 
 

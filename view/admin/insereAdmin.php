@@ -16,7 +16,7 @@
 <body>
     
 <?php
-   include '../../view/menu/cabecalho2.php';
+    include '../menu/cabecalho.php';   
 ?>
 <br>
 <br>
@@ -25,6 +25,18 @@
         <form method="POST" action="../../controller/controllerAdmin.php">     
 
             <br>
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Nome</label>
+                <input type="text" name="nome" class="form-control" placeholder="Digite o seu nome:">
+            </div>
+            </div>
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">CPF</label>
+                <input type="text" name="cpf" class="form-control" placeholder="Digite o seu cpf:">
+            </div>
+            </div>
             <div class="form-label">
             <div class=" col-md-6 offset-md-3">
                 <label for="formGroupExampleInput" class="form-label">Email</label>

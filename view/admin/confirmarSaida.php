@@ -1,3 +1,6 @@
+<?php
+    require 'verificaSessao.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,7 +38,8 @@
     </div>
 
         <input type="hidden" name="flag" value ="2">
-        <a value="Cancelar" href="../home.php?opt=1" class="btn btn-outline-danger">Cancelar</a>
+        <input type="submit" name="btn" class="btn btn-outline-success" value="Cancelar">
+        
         <input type="submit" name="btn" class="btn btn-outline-success" value="Sair">
 
         </div>

@@ -12,13 +12,9 @@
          
         public function cadastrar($promocao):void
         {
-
-        $resultado =  $this->mysql->prepare("insert into tb_promocao (descricao, periodo, banner, tb_loja_idtb_loja) values (?,?,?,?)");
-            
-        $resultado->bind_param('ssss',$promocao->getDescricao(), $promocao->getPeriodo(), $promocao->getBanner(), $promocao->getLoja());
-  
-        $resultado->execute();
-
+            $resultado =  $this->mysql->prepare("insert into tb_promocao (descricao, periodo, banner, tb_loja_idtb_loja) values (?,?,?,?)");
+            $resultado->bind_param('ssss',$promocao->getDescricao(), $promocao->getPeriodo(), $promocao->getBanner(), $promocao->getLoja());
+            $resultado->execute();
         }
 
         public function remover(string $id):void

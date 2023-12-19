@@ -4,10 +4,15 @@
         private $id;
         private $email;
         private $senha;
+        private $nome;
+        private $cpf;
 
-        function __construct($id,$email,$senha)
+
+        function __construct($id,$nome,$cpf,$email,$senha)
         {
             $this->id = $id;
+            $this->nome = $nome;
+            $this->cpf = $cpf;
             $this->email = $email;
             $this->senha = $senha;
         }
@@ -30,6 +35,18 @@
         }
         public function getSenha(){
             return $this->senha;
+        }
+        public function getNome(){
+            return $this->nome;
+        }
+        public function setNome($nome){
+            $this->nome = $nome;
+        }
+        public function getCpf(){
+            return $this->cpf;
+        }
+        public function setCpf($cpf){
+            $this->cpf = $cpf;
         }
     }    
         

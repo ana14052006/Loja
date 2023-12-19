@@ -8,40 +8,40 @@
     
                 <ul class="nav nav-tabs">                  
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../projetoLoja1028/view/admin/menu.php?opt=0" data-tooltip="tooltip">Home<span class="material-icons-outlined" style="font-size: 17px; vertical-align: -2px;">home</span></a>
+                        <a class="nav-link active" href="../admin/main.php?opt=0" data-tooltip="tooltip">Home<span class="material-icons-outlined" style="font-size: 17px; vertical-align: -2px;">home</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../projetoLoja1028/view/admin/admin.php" data-tooltip="tooltip">Admin</a>
+                        <a class="nav-link active" href="../admin/admin.php" data-tooltip="tooltip">Admin</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../projetoLoja1028/view/loja/loja.php" data-tooltip="tooltip">Loja</a>
+                        <a class="nav-link active" href="../loja/loja.php" data-tooltip="tooltip">Loja</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../projetoLoja1028/view/promocao/promocao.php" data-tooltip="tooltip">Promocao</a>
+                        <a class="nav-link active" href="../promocao/promocao.php" data-tooltip="tooltip">Promocao</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../projetoLoja1028/view/vendedor/vendedor.php" data-tooltip="tooltip">Vendedor</a>
+                        <a class="nav-link active" href="../vendedor/vendedor.php" data-tooltip="tooltip">Vendedor</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../projetoLoja1028/view/fornecedor/fornecedor.php" data-tooltip="tooltip">Fornecedor</a>
+                        <a class="nav-link active" href="../fornecedor/fornecedor.php" data-tooltip="tooltip">Fornecedor</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../projetoLoja1028/view/endereco/endereco.php" data-tooltip="tooltip">Endereco</a>
+                        <a class="nav-link active" href="../endereco/endereco.php" data-tooltip="tooltip">Endereco</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../projetoLoja1028/view/produto/produto.php" data-tooltip="tooltip">Produto</a>
+                        <a class="nav-link active" href="../produto/produto.php" data-tooltip="tooltip">Produto</a>
                     </li>
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../projetoLoja1028/view/admin/logout.php?opt=0">Sair<span class="material-icons-outlined" style="font-size: 17px; vertical-align: -30px;">logout</span></a>
+                        <a class="nav-link" href="../admin/confirmarSaida.php?opt=0">Sair<span class="material-icons-outlined" style="font-size: 17px; vertical-align: -30px;">logout</span></a>
                     </li>
                 </ul> 
         </nav>

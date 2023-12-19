@@ -12,10 +12,9 @@
          
         public function cadastrar($loja):void
         {
-
-        $resultado =  $this->mysql->prepare("insert into tb_loja (nome, cnpj, logotipo, tb_admin_idtb_admin, tb_endereco_idtb_endereco) values (?,?,?,?,?)");      
-        $resultado->bind_param('sssss',$loja->getNome(), $loja->getCnpj(), $loja->getLogotipo(), $loja->getAdmin(), $loja->getEndereco());
-        $resultado->execute();
+            $resultado =  $this->mysql->prepare("insert into tb_loja (nome, cnpj, logotipo, tb_admin_idtb_admin, tb_endereco_idtb_endereco) values (?,?,?,?,?)");      
+            $resultado->bind_param('sssss',$loja->getNome(), $loja->getCnpj(), $loja->getLogotipo(), $loja->getAdmin()->getId(), $loja->getEndereco()->getId());
+            $resultado->execute();
 
         }
 

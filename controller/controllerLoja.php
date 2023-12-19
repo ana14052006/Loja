@@ -37,10 +37,23 @@
                 $nome = $_POST['nome'];
                 $cnpj = $_POST['cnpj'];
                 $logotipo = $_POST['caminho_imagem'];
-                $id_admin = $_POST['admin'];
-                $id_endereco = $_POST['endereco'];
+                session_start();
+                $id_admin = $_SESSION['id'];
+                $adm = new Admin($id_admin,null,null,null,null);
+              
+                $rua = $_POST['rua'];
+                $numero = $_POST['numero'];
+                $bairro = $_POST['bairro'];
+                $cep = $_POST['cep'];
+                $cidade = $_POST['cidade'];
 
-                $loja = new Loja (null,$nome,$cnpj,$logotipo,$id_admin,$id_endereco);
+                $endereco = new Endereco(null,$rua,$numero,$bairro,$cep,$cidade);
+                $daoEndereco = new EnderecoDao($mysql);
+                $daoEndereco->cadastrar($endereco);
+                $e = $daoEndereco->maxId();
+                $end = new Endereco($e['idtb_endereco'],null,null,null,null,null);              
+
+                $loja = new Loja (null,$nome,$cnpj,$logotipo,$adm,$end);
                 $dao = new LojaDao($mysql);
                 $dao->cadastrar($loja);
                 echo("<script>alert('Loja cadastrada com sucesso!!'); location.href= '../view/loja/listaLoja.php';</script>");
@@ -64,7 +77,7 @@
                 $id_admin = $_POST['admin'];
                 $id_endereco = $_POST['endereco'];
                 
-                $admin = new Admin($id_admin,null,null);
+                $admin = new Admin($id_admin,null,null,null,null);
                 $endereco = new Endereco($id_endereco,null,null,null,null,null);
                 $loja = new Loja($id,$nome,$cnpj,$logotipo,$id_admin,$id_endereco);
                 $dao = new LojaDao($mysql);
