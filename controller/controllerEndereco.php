@@ -49,14 +49,9 @@
         {
                 $id = $_POST['id'];
                 $dao = new EnderecoDao($mysql);
+                $dao->remover($id);
 
-                if ($dao->remover($id)) {
-                        header('Location: ../view/endereco/listaEndereco.php');
-                }
-                else {
-                        echo("<script>alert('O endereço não pode ser removido!!'); location.href= '../view/endereco/listaEndereco.php';</script>"); 
-                }             
-                
+                header('Location: ../view/endereco/listaEndereco.php');
         }
 
         function alterar($mysql)

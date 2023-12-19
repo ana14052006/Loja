@@ -20,6 +20,9 @@
 <?php
    include '../../view/menu/cabecalho.php';
 ?>
+<br>
+<br>
+<br>
 <br> 
         <form method="POST" action="../../controller/controllerPromocao.php">     
 
@@ -74,7 +77,7 @@
             </div>   
 
         </form>
-        <br>
+   
         <?php
             include '../menu/rodape.php';
         ?>     

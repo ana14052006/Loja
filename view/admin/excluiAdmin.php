@@ -17,6 +17,16 @@ require "../admin/verificaSessao.php";
     ?>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
     <form method="POST" action="../../controller/controllerAdmin.php">
     <div class="clo-md-50 offset-md-4">
@@ -34,7 +44,7 @@ require "../admin/verificaSessao.php";
         </div>
     </div>
 </form>
-    <br>
+    
     <?php
         include '../menu/rodape.php';
     ?>

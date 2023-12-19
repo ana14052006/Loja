@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Loja</title>
+    <title>Sistema Detran</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"rel="stylesheet">
 </head>
@@ -21,7 +21,9 @@
         <?php
             include '../../view/menu/cabecalho2.php';
         ?> 
-
+<br>
+<br>
+<br>
 <br> 
         <form method="POST" action="../../controller/controllerAdmin.php">     
 
@@ -52,12 +54,12 @@
                 <button type="submit" name="btn" value="Logar" class="btn btn-outline-success">Login<span class="material-icons-outlined" style="font-size: 30px; vertical-align: middle;">login</span></button>&nbsp;   
             </div>
             </div>  
-                
+                <a  href="insereAdmin.php"><center>Não possui cadastro? Cadastre-se<center></a>
             
 
 
         </form>
-   <br>
+   
         <?php
             include '../menu/rodape.php';
         ?>     

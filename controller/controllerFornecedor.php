@@ -45,13 +45,9 @@
         {
                 $id = $_POST['id'];
                 $dao = new FornecedorDao($mysql);
-                if ($dao->remover($id)) {
-                        header('Location: ../view/fornecedor/listaFornecedor.php');
-                }
-                else {
-                        echo("<script>alert('O fornecedor não pode ser removido!!'); location.href= '../view/fornecedor/listaFornecedor.php';</script>"); 
-                }               
-                
+                $dao->remover($id);
+
+                header('Location: ../view/fornecedor/listaFornecedor.php');
         }
 
         function alterar($mysql)
