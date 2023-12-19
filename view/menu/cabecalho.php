@@ -32,17 +32,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link active" href="../endereco/endereco.php" data-tooltip="tooltip">Endereco</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link active" href="../produto/produto.php" data-tooltip="tooltip">Produto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../cor/cor.php" data-tooltip="tooltip">Cor</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../tamanho/tamanho.php" data-tooltip="tooltip">Tamanho</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../contato/contato.php" data-tooltip="tooltip">Contato</a>
-                    </li>
+
 
                     <li class="nav-item">
                         <a class="nav-link" href="../admin/confirmarSaida.php?opt=0">Sair<span class="material-icons-outlined" style="font-size: 17px; vertical-align: -30px;">logout</span></a>

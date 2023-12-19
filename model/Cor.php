@@ -1,16 +1,13 @@
 <?php
-
-class Cor
+    class Cor
     {
         private $id;
         private $cor;
-        
-
+      
         function __construct($id,$cor)
         {
             $this->id = $id;
             $this->cor = $cor;
-                       
         }
         
         public function setId($id)
@@ -22,7 +19,7 @@ class Cor
         {
             $this->cor = $cor;
         }
-     
+ 
         public function getId()
         {
             return $this->id;
@@ -30,8 +27,8 @@ class Cor
         public function getCor()
         {
             return $this->cor;
-        }     
+        }
+
        
     }    
-
-?>
+        

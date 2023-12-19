@@ -3,17 +3,8 @@
     require '../../config/config.php';
     include '../../dao/FornecedorDao.php';
     include '../../model/Fornecedor.php';
-    include '../../dao/LojaDao.php';
-    include '../../model/Loja.php';
     include '../../dao/ProdutoDao.php';
     include '../../model/Produto.php'; 
-    include '../../dao/TamanhoDao.php';
-    include '../../model/Tamanho.php'; 
-    include '../../dao/CorDao.php';
-    include '../../model/Cor.php'; 
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inserção de produto</title>
+    <title>Sistema Detran</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
@@ -31,6 +22,9 @@
 
 ?>
 <br>
+<br>
+<br>
+<br> 
         <form method="POST" action="../../controller/controllerProduto.php">     
 
             <br>
@@ -53,29 +47,17 @@
             <div class="form-label">
             <div class="col-md-6 offset-md-3">
                 <label for="formGroupExampleInput" class="form-label">Caminho da imagem:</label>
-                <input type="text" name="foto" class="form-control" placeholder="Digite o caminho da imagem:">
+                <input type="text" name="caminho_imagem" class="form-control" placeholder="Digite o caminho da imagem:">
             </div>
             </div>
-
+            <br>
 
             <div class="form-label">
-            <div class=" col-md-6 offset-md-3">  
-            <br><label for="formGroupExampleInput2" class="form-label">Loja:</label><br>  
-                    <select name="loja">
-                        <?php
-                            $daoLoja = new LojaDao($mysql);
-                            $listaLoja = $daoLoja->buscarTodos();
-                            foreach($listaLoja as $itemLoja)
-                            {
-                        ?>
-                            <option class="form-control-lg" value="<?=$itemLoja['idtb_loja']?>"><?=$itemLoja['nome']?></option>
-                        <?php
-                            }
-                        ?>        
-                    </select><br>
+            <div class="col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Quantidade:</label>
+                <input type="text" name="quantidade" class="form-control" placeholder="Digite a quantidade do produto:">
             </div>
             </div>
-
         
             <div class="form-label">
             <div class=" col-md-6 offset-md-3">  
@@ -94,36 +76,17 @@
                     </select><br>
             </div>
             </div>
-
-
-            <div class="form-label">
-            <div class="col-md-6 offset-md-3">  
-            <br><label for="formGroupExampleInput2" class="form-label">Tamanhos disponíveis:</label><br>  
-            <?php
-                $daoTamanho = new TamanhoDao($mysql);
-                $listaTamanho = $daoTamanho->buscarTodos();
-                foreach ($listaTamanho as $itemTamanho){
-                ?>    
-                    <input type="checkbox"  name="tamanho<?= $itemTamanho['idtb_tamanho']?>" value="<?=$itemTamanho['idtb_tamanho']?>">
-                    <label><Strong><?=$itemTamanho['tamanho']?></strong></label><br>
-                <?php    
-                }                
-
-            ?>
-            </div>
-            </div><br>
-
         
             <div class="form-group">
             <div class=" col-md-6 offset-md-3">  
-                <br>                
+                <br>
+                <input type="hidden" name="flag" value ="1">
                 <input type="submit" name="btn" value="Cancelar" class="btn btn-outline-danger">&nbsp;
                 <input type="submit" name="btn" value="Cadastrar" class="btn btn-outline-success">&nbsp;   
             </div>
             </div>   
 
         </form>
-        <br>
    
         <?php
             include '../menu/rodape.php';

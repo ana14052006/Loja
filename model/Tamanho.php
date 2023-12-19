@@ -1,16 +1,13 @@
 <?php
-
-class Tamanho
+    class Tamanho
     {
         private $id;
         private $tamanho;
-        
-
+      
         function __construct($id,$tamanho)
         {
             $this->id = $id;
             $this->tamanho = $tamanho;
-                       
         }
         
         public function setId($id)
@@ -22,7 +19,7 @@ class Tamanho
         {
             $this->tamanho = $tamanho;
         }
-     
+ 
         public function getId()
         {
             return $this->id;
@@ -30,8 +27,7 @@ class Tamanho
         public function getTamanho()
         {
             return $this->tamanho;
-        }     
-       
-    }    
+        }
 
-?>
+       
+    }  

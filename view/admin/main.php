@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Loja</title>
+    <title>Sistema Detran</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
@@ -15,20 +15,20 @@
     include '../menu/cabecalho.php';
 ?>
 
-
+<br>
+<br>
+<br>
 <br>
 
 
 <div class="cool-md-10 offset-md-4">
-<div class="card" style="width: 30rem; height: 40rem;">
+<div class="card" style="width: 30rem; heigth: 40rem;">
 <img class="card-img-top" src="../img/logo.png" alt="Imagem de capa do card">
   <div class="card-body">
     <p class="card-text">Seja muito bem-vindo ao nosso sistema, aqui você pode cadastrar sua loja, promoções e funcionarios. E também ver a listagem de todos esses campos. Esperamos que tenha uma ótima experiencia desfrutando de nossas funcionalidades. Clique na barra de navegação  acima e navegue por nosso sistema</p>
   </div>
 </div>
 </div>
-
-<br>
 
 <?php
     include '../menu/rodape.php';

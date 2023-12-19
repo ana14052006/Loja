@@ -15,9 +15,10 @@
             $resultado->bind_param('sssss',$vendedor->getNome(), $vendedor->getCodigo(), $vendedor->getSetor(), $vendedor->getLoja()->getId(), $vendedor->getEndereco()->getId());
             $resultado->execute();
         }
-       
+
+
         public function remover(string $id):void
-        {       
+        {
             $resultado = $this->mysql->prepare
             ("delete from tb_vendedor where idtb_vendedor = ?");
             $resultado->bind_param('s', $id);

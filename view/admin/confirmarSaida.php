@@ -17,6 +17,16 @@
     ?>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
     <form method="POST" action="../../controller/controllerAdmin.php">
     <div class="clo-md-10 offset-md-4">
@@ -35,7 +45,6 @@
         </div>
     </div>
 </form>
-<br>
     
     <?php
         include '../menu/rodape.php';
