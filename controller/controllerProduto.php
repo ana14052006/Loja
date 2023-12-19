@@ -35,11 +35,9 @@
                 $nome = $_POST['nome'];
                 $preco = $_POST['preco'];
                 $foto = $_POST['caminho_imagem'];
-                $qtd = $_POST['quantidade'];
                 $id_fornecedor = $_POST['fornecedor'];
-                $id_loja = $_POST['loja'];
                 
-                $produto = new Produto (null,$nome,$preco,$foto,$qtd,$id_fornecedor,$id_loja);
+                $produto = new Produto (null,$nome,$preco,$foto,$id_fornecedor);
                 $dao = new ProdutoDao ($mysql);
                 if($dao->cadastrar($produto))
                 {       
@@ -65,13 +63,10 @@
                 $nome = $_POST['nome'];
                 $preco = $_POST['preco'];
                 $foto = $_POST['caminho_imagem'];
-                $qtd = $_POST['quantidade'];
                 $id_fornecedor = $_POST['fornecedor'];
-                $id_loja = $_POST['loja'];
 
                 $fornecedor = new Fornecedor($id_fornecedor,null,null);
-                $loja = new Loja($id_loja,null,null,null,null,null);
-                $produto = new Produto ($id,$nome,$preco,$foto,$qtd,$id_fornecedor,$id_loja);
+                $produto = new Produto ($id,$nome,$preco,$foto,$id_fornecedor);
                 $dao = new ProdutoDao($mysql);
                 $dao->alterar($produto);
                 header('Location: ../view/produto/listaProduto.php');

@@ -5,20 +5,16 @@
         private $nome;
         private $preco;
         private $foto;
-        private $qtd;
         private $fornecedor;
-        private $loja;
       
 
-        function __construct($id,$nome,$preco,$foto,$qtd,$fornecedor,$loja)
+        function __construct($id,$nome,$preco,$foto,$fornecedor)
         {
             $this->id = $id;
             $this->nome = $nome;
             $this->preco = $preco;
             $this->foto = $foto;
-            $this->qtd = $qtd;
             $this->fornecedor = $fornecedor;
-            $this->loja = $loja;
 
         }
         
@@ -41,16 +37,8 @@
             $this->foto = $foto;
         }
 
-        public function setQtd($qtd){
-            $this->qtd = $qtd;
-        }
-
         public function setFornecedor($fornecedor){
             $this->fornecedor = $fornecedor;
-        }
-
-        public function setLoja($loja){
-            $this->loja = $loja;
         }
  
         public function getId()
@@ -72,19 +60,9 @@
             return $this->foto;
         }
 
-        public function getQtd()
-        {
-            return $this->qtd;
-        }
-
         public function getFornecedor()
         {
             return $this->fornecedor;
-        }
-
-        public function getLoja()
-        {
-            return $this->loja;
         }
 
        

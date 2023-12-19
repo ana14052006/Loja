@@ -54,13 +54,6 @@
                 <input type="text" name="foto" value="<?=$produto['foto']?>" class="form-control" placeholder="Digite a nova foto do produto:">
             </div> 
             </div>
-
-            <div class="form-label">
-            <div class=" col-md-6 offset-md-3">
-                <label for="formGroupExampleInput" class="form-label">Quantidade:</label>
-                <input type="text" name="qtd" value="<?=$produto['qtd']?>" class="form-control" placeholder="Digite a nova quantidade do produto:">
-            </div> 
-            </div>
             <br>
 
             <div class="form-label">

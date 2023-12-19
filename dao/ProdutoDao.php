@@ -12,8 +12,8 @@
          
         public function cadastrar($produto):void{   
 
-        $resultado =  $this->mysql->prepare("insert into tb_produto(nome, preco, foto, qtd, tb_fornecedor_idtb_fornecedor) values (?,?,?,?,?)");
-        $resultado->bind_param('sssss',$produto->getNome(), $produto->getPreco(), $produto->getFoto(), $produto->getQtd(), $produto->getFornecedor());
+        $resultado =  $this->mysql->prepare("insert into tb_produto(nome, preco, foto, tb_fornecedor_idtb_fornecedor) values (?,?,?,?)");
+        $resultado->bind_param('ssss',$produto->getNome(), $produto->getPreco(), $produto->getFoto(), $produto->getFornecedor());
         $resultado->execute();
 
         }
@@ -29,8 +29,8 @@
         public function alterar($produto):void
         {
             $resultado = $this->mysql->prepare
-            ("update tb_produto set nome=?, preco=?, foto=?, qtd=?, tb_fornecedor_idtb_fornecedor=? where idtb_produto=?");
-            $resultado->bind_param('ssssss',$produto->getNome(), $produto->getPreco(), $produto->getFoto(), $produto->getQtd(), $produto->getFornecedor()->getId(), $produto->getId());
+            ("update tb_produto set nome=?, preco=?, foto=?, tb_fornecedor_idtb_fornecedor=? where idtb_produto=?");
+            $resultado->bind_param('sssss',$produto->getNome(), $produto->getPreco(), $produto->getFoto(), $produto->getFornecedor()->getId(), $produto->getId());
             $resultado->execute();
         }
 

@@ -43,7 +43,6 @@
       <th scope="col">Nome</th>
       <th scope="col">Preco</th> 
       <th scope="col">Foto</th>
-      <th scope="col">Quantidade</th>
       <th scope="col">Fornecedor</th>  
       <th scope="col">Ação</th> 
     </tr>
@@ -64,7 +63,6 @@
       <td><?=$produto['nome']?></td>
       <td><?=$produto['preco']?></td>
       <td><?=$produto['foto']?></td>
-      <td><?=$produto['quantidade']?></td>
       <td><?=$fornecedor['nome']?></td>
       <td>
         <a href="editaProduto.php?id=<?=$produto['idtb_produto']?>" class="btn btn-outline-primary">Editar</a>

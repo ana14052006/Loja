@@ -50,14 +50,6 @@
                 <input type="text" name="caminho_imagem" class="form-control" placeholder="Digite o caminho da imagem:">
             </div>
             </div>
-            <br>
-
-            <div class="form-label">
-            <div class="col-md-6 offset-md-3">
-                <label for="formGroupExampleInput" class="form-label">Quantidade:</label>
-                <input type="text" name="quantidade" class="form-control" placeholder="Digite a quantidade do produto:">
-            </div>
-            </div>
         
             <div class="form-label">
             <div class=" col-md-6 offset-md-3">  
