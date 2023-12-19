@@ -26,7 +26,7 @@
 
         public function setRua($rua)
         {
-            $this->rua = $ua;
+            $this->rua = $rua;
         }
 
         public function setNumero($numero)

@@ -33,7 +33,7 @@ require "../admin/verificaSessao.php";
     <br>
     <br>
     <br>
-    <a href="insereAdmin.php" class="card-link">Cadastrar Admin<span class="material-icons-outlined" style="font-size: 17px; vertical-align: middle;"></span></a>
+    
     <a href="listaAdmin.php" class="card-link">Listar Admins</a><span class="material-icons-outlined" style="font-size: 30px; vertical-align: middle;">list</span></a>
    
   </div>

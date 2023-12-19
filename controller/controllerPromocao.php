@@ -66,7 +66,7 @@
                 $id_loja = $_POST['loja'];
                 
                 $loja = new Loja($id_loja,null,null,null,null,null);
-                $promocao = new Promocao ($id,$descricao,$periodo,$banner,$id_loja);
+                $promocao = new Promocao ($id,$descricao,$periodo,$banner,$loja);
                 $dao = new PromocaoDao($mysql);
                 $dao->alterar($promocao);
                 header('Location: ../view/promocao/listaPromocao.php');

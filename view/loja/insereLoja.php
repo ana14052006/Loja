@@ -51,42 +51,41 @@
                 <input type="text" name="caminho_imagem" class="form-control" placeholder="Digite o caminho da imagem:">
             </div>
             </div>
-
+         
             <div class="form-label">
-            <div class=" col-md-6 offset-md-3">  
-            <br><label for="formGroupExampleInput2" class="form-label">Admin:</label><br>  
-                    <select name="admin">
-                        <?php
-                            $dao = new AdminDao($mysql);
-                            $lista = $dao->buscarTodos();
-                            foreach($lista as $admin)
-                            {
-                        ?>
-                            <option class="form-control-lg" value="<?=$admin['idtb_admin']?>"><?=$admin['email']?></option>
-                        <?php
-                            }
-                        ?>        
-                    </select><br>
+            <div class=" col-md-3 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Rua:</label>
+                <input type="text" name="rua" class="form-control" placeholder="Digite o rua da loja:">
+            </div> 
             </div>
+            <div class="form-label">
+            <div class=" col-md-3 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Numero:</label>
+                <input type="text" name="numero" class="form-control" placeholder="Digite o numero da loja:">
+            </div> 
             </div>
 
             <div class="form-label">
-            <div class=" col-md-6 offset-md-3">  
-            <br><label for="formGroupExampleInput2" class="form-label">Endereco:</label><br>  
-                    <select name="endereco">
-                        <?php
-                            $dao = new EnderecoDao($mysql);
-                            $lista = $dao->buscarTodos();
-                            foreach($lista as $endereco)
-                            {
-                        ?>
-                            <option class="form-control-lg" value="<?=$endereco['idtb_endereco']?>"><?=$endereco['bairro']?></option>
-                        <?php
-                            }
-                        ?>        
-                    </select><br>
+            <div class=" col-md-3 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Bairro:</label>
+                <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro da loja:">
+            </div> 
             </div>
+            <div class="form-label">
+            <div class=" col-md-3 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Cep:</label>
+                <input type="text" name="cep" class="form-control" placeholder="Digite o cep da loja:">
+            </div> 
             </div>
+            <div class="form-label">
+            <div class=" col-md-3 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Cidade:</label>
+                <input type="text" name="cidade" class="form-control" placeholder="Digite a cidade da loja:">
+            </div> 
+            </div>
+            <br>
+
+            
     
             <div class="form-group">
             <div class=" col-md-6 offset-md-3">  
@@ -100,7 +99,7 @@
         </form>
    
         <?php
-            include '../menu/rodape.php';
+            //include '../menu/rodape.php';
         ?>     
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

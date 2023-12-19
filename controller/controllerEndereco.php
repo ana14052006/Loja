@@ -59,7 +59,7 @@
                 $id = $_POST['id'];
                 $rua = $_POST['rua'];
                 $numero = $_POST['numero'];
-                $bairo = $_POST['bairro'];
+                $bairro = $_POST['bairro'];
                 $cep = $_POST['cep'];
                 $cidade = $_POST['cidade'];
                 

@@ -34,15 +34,11 @@
         {
                 $nome = $_POST['nome'];
                 $id_loja = $_POST['loja'];
-                
-                $fornecedor = new Fornecedor (null,$nome,$id_loja);
-                $dao = new FornecedorDao ($mysql);
-                if($dao->cadastrar($fornecedor))
-                {       
-                        echo("<script>alert('Fornecedor cadastrado com sucesso!!'); location.href= '../view/fornecedor/listaFornecedor.php';</script>");
-                        
-                }
-
+                $loja = new Loja($id_loja,null,null,null,null,null);
+                $fornecedor = new Fornecedor (null,$nome,$loja);
+                $dao = new FornecedorDao($mysql);
+                $dao->cadastrar($fornecedor);
+                echo("<script>alert('Fornecedor cadastrado com sucesso!!'); location.href= '../view/fornecedor/listaFornecedor.php';</script>");
         }
     
         function excluir($mysql)
@@ -55,14 +51,13 @@
         }
 
         function alterar($mysql)
-        {
-               
+        {               
                 $id = $_POST['id'];
                 $nome = $_POST['nome'];
                 $id_loja = $_POST['loja'];
 
                 $loja = new Loja($id_loja,null,null,null,null,null);
-                $fornecedor = new Fornecedor ($id,$nome,$id_loja);
+                $fornecedor = new Fornecedor ($id,$nome,$loja);
                 $dao = new FornecedorDao($mysql);
                 $dao->alterar($fornecedor);
                 header('Location: ../view/fornecedor/listaFornecedor.php');

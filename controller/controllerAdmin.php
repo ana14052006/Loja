@@ -14,6 +14,7 @@
                 break;
 
                 case 'Excluir': excluir($mysql);
+                break;
 
 
                 case 'Cancelar': cancelar();
@@ -28,22 +29,19 @@
 
         function sair($mysql)
         {       
-                session_start();
-                session_destroy();
-                echo("<script>alert('Voce se desconectou da nossa base.'); location.href = '../view/admin/logarAdmin.php';</script>");
+                header("Location: ../view/admin/logout.php"); 
         }
         function cancelar()
         {
-                header("Location: ../view/admin/listaAdmin.php");
+                header("Location: ../view/admin/main.php");
                         
         }
         function logar($mysql)
-        {
-        
+        {       
                 
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
-                $admin = new Admin(null,$email,$senha);
+                $admin = new Admin(null,null,null,$email,$senha);
                 
                 $dao = new AdminDao($mysql);
                 if ($dao->ValidaEmailSenha($admin))
@@ -52,9 +50,10 @@
                         session_start();
                         $_SESSION['email'] = $email;
                         $_SESSION['id'] = $adm['idtb_admin'];
+                        $_SESSION['nome'] = $adm['nome'];
+                        $_SESSION['cpf'] = $adm['cpf'];
 
-                        $usuario = $dao->buscarPorEmail($email);
-                        echo("<script>alert('Voce se conectou ao nosso sistema.'); location.href = '../view/admin/menu.php?opt=0';</script>");
+                        echo("<script>alert('Voce se conectou ao nosso sistema.'); location.href = '../view/admin/main.php?opt=0';</script>");
                         
                 }
                 else 
@@ -63,30 +62,14 @@
                 echo("<script>alert('Não foi possível se conectar ao sistema, verifique os seus dados'); location.href = '../view/admin/logarAdmin.php?erro=1';</script>");
                 }
         }
-        function acessar($mysql)
-        {
-                $email = $_POST['email'];
-                $senha = $_POST['senha'];
-                $admin = new Admin(null,$email,$senha);
-                
-                $dao = new AdminDao($mysql);
-                if ($dao->ValidaEmailSenha($user))
-                {
-                        session_start();
-                        $_SESSION['email'] = $email;
-                        header('Location: ../view/admin/menu.php');
-                }
-                else 
-                {
-                // Usuário não autenticado, redireciona para a página de login com mensagem de erro
-                header('Location: ../view/admin/logaAdmin.php?erro=1');
-                }
-        }
+        
         function cadastrar($mysql)
         {
+                $nome = $_POST['nome'];
+                $cpf = $_POST['cpf'];
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
-                $admin = new Admin(null,$email,$senha);
+                $admin = new Admin(null,$nome,$cpf,$email,$senha);
                 $dao = new AdminDao($mysql);
                 if($dao->cadastrar($admin))
                 {
@@ -99,21 +82,7 @@
                 }
 
         }
-        function enviar($mysql)
-        {
-               
-                $email = $_POST['email'];
-                $senha = $_POST['senha'];
-               
-                
-                $admin = new Admin(null,$email,$senha);
-                $mysql = new mysqli('localhost', 'root','','loja');
-               
-                $adminDao = new AdminDao($mysql);
-                $AdminDao->logar($usuario);
-
-                header('Location: ../view/admin/menu.php');
-        }
+        
 
         function excluir($mysql)
         {
@@ -127,10 +96,12 @@
         function alterar($mysql)
         {
                 $id = $_POST['id'];
+                $nome = $_POST['nome'];
+                $cpf = $_POST['cpf'];
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
                 
-                $admin = new Admin($id,$email,$senha);
+                $admin = new Admin($id,$nome,$cpf,$email,$senha);
                 $dao = new AdminDao($mysql);
                 $dao->alterar($admin);
                 header('Location: ../view/admin/listaAdmin.php');

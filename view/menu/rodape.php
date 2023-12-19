@@ -1,10 +1,10 @@
 <style>
     footer{
 
-        position: absolute;
+        position: relative;
         bottom: 0;
         width: 100%;
-        heigth: 100px;
+        
         background-color:#F60679;
     }   
 </style>

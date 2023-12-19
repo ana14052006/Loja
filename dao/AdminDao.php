@@ -28,8 +28,8 @@
             
             if (!($this->existeAdmin($admin)))
                 {
-                    $resultado = $this->mysql->prepare("insert into tb_admin (email, senha) values (?,?)");
-                    $resultado->bind_param('ss', $admin->getEmail(), $admin->getSenha());
+                    $resultado = $this->mysql->prepare("insert into tb_admin (nome,cpf,email, senha) values (?,?,?,?)");
+                    $resultado->bind_param('ssss', $admin->getNome(), $admin->getCpf(),$admin->getEmail(), $admin->getSenha());
                     $resultado->execute();
                     return true;
 
@@ -54,8 +54,8 @@
         {
             
             $resultado = $this->mysql->prepare
-            ("update tb_admin set email=?, senha=? where idtb_admin=?");
-            $resultado->bind_param('sss', $admin->getEmail(), $admin->getSenha(), $admin->getId());
+            ("update tb_admin set nome=?, cpf=?,email=?, senha=? where idtb_admin=?");
+            $resultado->bind_param('sssss', $admin->getNome(),$admin->getCpf(),$admin->getEmail(), $admin->getSenha(), $admin->getId());
             $resultado->execute();
         
         }

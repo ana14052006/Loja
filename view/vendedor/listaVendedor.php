@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Listagem de vendedores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
@@ -22,11 +22,6 @@
         include '../menu/cabecalho.php';
     ?>
 
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
   <div class="panel panel-default" style="margin: 10px">
@@ -45,8 +40,7 @@
       <th scope="col">Nome</th>
       <th scope="col">Codigo</th>
       <th scope="col">Setor</th>      
-      <th scope="col">Loja</th> 
-      <th scope="col">Endereco</th> 
+      <th scope="col">Loja</th>      
       <th scope="col">Ação</th> 
     </tr>
   </thead>
@@ -57,11 +51,7 @@
 
         foreach ($lista as $vendedor) {
           $daoLoja = new LojaDao($mysql);
-          $loja = $daoLoja->buscarPorId($vendedor['tb_loja_idtb_loja']);
-
-          $daoEndereco = new  EnderecoDao($mysql);
-          $endereco = $daoEndereco->buscarPorId($vendedor['tb_endereco_idtb_endereco']);
-
+          $loja = $daoLoja->buscarPorId($vendedor['tb_loja_idtb_loja']);         
           
     ?>
     <tr>
@@ -69,8 +59,7 @@
       <td><?=$vendedor['nome']?></td>
       <td><?=$vendedor['codigo']?></td>
       <td><?=$vendedor['setor']?></td>
-      <td><?=$loja['nome']?></td>
-      <td><?=$endereco['bairro']?></td>
+      <td><?=$loja['nome']?></td>      
       <td>
         <a href="editaVendedor.php?id=<?=$vendedor['idtb_vendedor']?>" class="btn btn-outline-primary">Editar</a>
         <a href="excluiVendedor.php?id=<?=$vendedor['idtb_vendedor']?>" class="btn btn-outline-danger">Excluir</a>

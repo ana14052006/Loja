@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Detran</title>
+    <title>Editar fornecedor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
@@ -23,8 +23,7 @@
 
    $id = $_GET['id'];
    $dao = new FornecedorDao($mysql);
-   $fornecedor = $dao->buscarPorId($id);
-    
+   $fornecedor = $dao->buscarPorId($id);    
 ?>
 <br>
 <br>
@@ -49,12 +48,20 @@
                             $lista = $dao->buscarTodos();
                             foreach($lista as $loja)
                             {
+                                if ($fornecedor['tb_loja_idtb_loja'] == $loja['idtb_loja']){
                         ?>
-                            <option class="form-control-lg" value="<?=$loja['idtb_loja']?>"><?=$loja['nome']?></option>
-                        <?php
+                            <option class="form-control-lg" value="<?=$loja['idtb_loja']?>" selected><?=$loja['nome']?></option>
+                            <?php
+                                }
+                                else{
+                            ?>
+                                <option class="form-control-lg" value="<?=$loja['idtb_loja']?>"><?=$loja['nome']?></option>
+                            <?php   
+                                }
                             }
-                        ?>        
-                    </select><br>
+                            ?>        
+                    </select><br>     
+                   
             </div>
             </div>
     
@@ -63,6 +70,7 @@
             <div class=" col-md-6 offset-md-3">  
                 <br>
                 <input type="hidden" name="flag" value ="1">
+                <input type="hidden" name="id" value ="<?=$id?>">
                 <input type="submit" name="btn" value="Cancelar" class="btn btn-outline-danger">&nbsp;
                 <input type="submit" name="btn" value="Alterar" class="btn btn-outline-success">&nbsp;   
             </div>

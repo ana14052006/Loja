@@ -31,7 +31,19 @@
         <form method="POST" action="../../controller/controllerAdmin.php">     
 
             <br>
-            
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">Nome:</label>
+                <input type="text" name="nome" value="<?=$admin['nome']?>" class="form-control" placeholder="Digite o novo nome do admin:"> 
+            </div> 
+            </div>
+
+            <div class="form-label">
+            <div class=" col-md-6 offset-md-3">
+                <label for="formGroupExampleInput" class="form-label">CPF:</label>
+                <input type="text" name="cpf" value="<?=$admin['cpf']?>" class="form-control" placeholder="Digite o novo cpf do admin:"> 
+            </div> 
+            </div>
             
             <div class="form-label">
             <div class=" col-md-6 offset-md-3">
