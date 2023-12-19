@@ -40,13 +40,28 @@
                 }
         }
 
-        public function remover(string $id):void
+        public function podeLoja(string $id):bool
         {
-            
-            $resultado = $this->mysql->prepare
-            ("delete from tb_admin where idtb_admin = ?");
-            $resultado->bind_param('s', $id);
+            $resultado = $this->mysql->prepare("select * from tb_loja where tb_admin_idtb_admin = ?");
+            $resultado->bind_param('s',$id);
             $resultado->execute();
+            if($resultado->get_result()->num_rows > 0)
+                return false; // não pode
+            else
+                return true; // pode
+        }
+        public function remover(string $id):bool
+        {
+            if ($this->podeLoja($id)){
+                $resultado = $this->mysql->prepare
+                ("delete from tb_admin where idtb_admin = ?");
+                $resultado->bind_param('s', $id);
+                $resultado->execute();
+                return true;
+            }
+            else {
+                return false;
+            }
        
         }
 

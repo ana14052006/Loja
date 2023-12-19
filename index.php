@@ -1,3 +1,3 @@
 <?php
-    header('Location: view/admin/logarAdmin.php');
+    header('Location: view/admin/main.php');
 ?>

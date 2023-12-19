@@ -15,14 +15,29 @@
             $resultado->bind_param('ss',$fornecedor->getNome(), $fornecedor->getLoja()->getId());
             $resultado->execute();
         }
-
-
-        public function remover(string $id):void
+        
+        public function podeRemover(string $id):bool
         {
-            $resultado = $this->mysql->prepare
-            ("delete from tb_fornecedor where idtb_fornecedor = ?");
-            $resultado->bind_param('s', $id);
+            $resultado = $this->mysql->prepare("select * from tb_produto where tb_fornecedor_idtb_fornecedor = ?");
+            $resultado->bind_param('s',$id);
             $resultado->execute();
+            if($resultado->get_result()->num_rows > 0)
+                return false; // não pode
+            else
+                return true; // pode            
+        }
+        public function remover(string $id):bool
+        {
+            if ($this->podeRemover($id)){
+                $resultado = $this->mysql->prepare
+                ("delete from tb_fornecedor where idtb_fornecedor = ?");
+                $resultado->bind_param('s', $id);
+                $resultado->execute();
+                return true;
+            }
+            else {
+                return false;
+            }    
         }
 
         public function alterar($fornecedor):void

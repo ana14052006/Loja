@@ -27,9 +27,6 @@
 
 ?>
 <br>
-<br>
-<br>
-<br> 
         <form method="POST" action="../../controller/controllerPromocao.php">     
 
             <br>
@@ -94,7 +91,7 @@
             </div>  
 
         </form>
-   
+   <br>
         <?php
             include '../menu/rodape.php';
         ?>     

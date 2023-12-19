@@ -33,7 +33,7 @@
         }
         function cancelar()
         {
-                header("Location: ../view/admin/main.php");
+                header("Location: ../view/admin/listaAdmin.php");
                         
         }
         function logar($mysql)
@@ -73,11 +73,11 @@
                 $dao = new AdminDao($mysql);
                 if($dao->cadastrar($admin))
                 {
-                        echo("<script>alert('Admin cadastrado com sucesso!!'); location.href= '../view/admin/logarAdmin.php';</script>");
+                        echo("<script>alert('Admin cadastrado com sucesso!!'); location.href= '../view/admin/listaAdmin.php';</script>");
                         
                 }
                 else{
-                        echo("<script>alert('Admin já cadastrado em nossa base, se logue em nosso sistema!!');location.href= '../view/admin/logarAdmin.php';</script>");        
+                        echo("<script>alert('Admin já cadastrado em nossa base!!');location.href= '../view/admin/listaAdmin.php';</script>");        
                        
                 }
 
@@ -88,9 +88,13 @@
         {
                 $id = $_POST['id'];
                 $dao = new AdminDao($mysql);
-                $dao->remover($id);
 
-                header('Location: ../view/admin/menu.php');
+                if ($dao->remover($id)) {
+                        header('Location: ../view/admin/listaAdmin.php');
+                }
+                else {
+                        echo("<script>alert('O administrador não pode ser removido!!'); location.href= '../view/admin/listaAdmin.php';</script>"); 
+                } 
         }
 
         function alterar($mysql)

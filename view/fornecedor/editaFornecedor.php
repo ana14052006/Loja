@@ -25,9 +25,6 @@
    $dao = new FornecedorDao($mysql);
    $fornecedor = $dao->buscarPorId($id);    
 ?>
-<br>
-<br>
-<br>
 <br> 
         <form method="POST" action="../../controller/controllerFornecedor.php">     
 
@@ -77,7 +74,7 @@
             </div>  
 
         </form>
-   
+   <br>
         <?php
             include '../menu/rodape.php';
         ?>     
