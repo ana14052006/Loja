@@ -26,12 +26,40 @@
             $resultado->execute();            
         }
 
-        public function remover(string $id):void
+        public function removerEnderecoVendedor($id):bool
         {
-            $resultado = $this->mysql->prepare
-            ("delete from tb_endereco where idtb_endereco = ?");
-            $resultado->bind_param('s', $id);
+            $resultado = $this->mysql->prepare("select * from tb_vendedor where tb_endereco_idtb_endereco = ?");
+            $resultado->bind_param('s',$id);
             $resultado->execute();
+            if($resultado->get_result()->num_rows > 0)
+                return false; // não pode
+            else
+                return true; // pode
+
+        }
+        public function removerEnderecoLoja($id):bool
+        {
+            $resultado = $this->mysql->prepare("select * from tb_loja where tb_endereco_idtb_endereco = ?");
+            $resultado->bind_param('s',$id);
+            $resultado->execute();
+            if($resultado->get_result()->num_rows > 0)
+                return false; // não pode
+            else
+                return true; // pode
+
+        }
+        public function remover(string $id):bool
+        {
+            if (($this->removerEnderecoLoja($id)) AND ($this->removerEnderecoVendedor($id))){
+                $resultado = $this->mysql->prepare
+                ("delete from tb_endereco where idtb_endereco = ?");
+                $resultado->bind_param('s', $id);
+                $resultado->execute();
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
         public function alterar($endereco):void

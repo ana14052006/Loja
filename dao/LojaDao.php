@@ -18,12 +18,60 @@
 
         }
 
-        public function remover(string $id):void
+        public function podeVendedor(string $id):bool
         {
-            $resultado = $this->mysql->prepare
-            ("delete from tb_loja where idtb_loja = ?");
-            $resultado->bind_param('s', $id);
+            $resultado = $this->mysql->prepare("select * from tb_vendedor where tb_loja_idtb_loja = ?");
+            $resultado->bind_param('s',$id);
             $resultado->execute();
+            if($resultado->get_result()->num_rows > 0)
+                return false; // não pode
+            else
+                return true; // pode
+        }
+        public function podeProduto(string $id):bool
+        {
+            $resultado = $this->mysql->prepare("select * from tb_produto where tb_loja_idtb_loja = ?");
+            $resultado->bind_param('s',$id);
+            $resultado->execute();
+            if($resultado->get_result()->num_rows > 0)
+                return false; // não pode
+            else
+                return true; // pode
+        }
+        public function podeFornecedor(string $id):bool
+        {
+            $resultado = $this->mysql->prepare("select * from tb_fornecedor where tb_loja_idtb_loja = ?");
+            $resultado->bind_param('s',$id);
+            $resultado->execute();
+            if($resultado->get_result()->num_rows > 0)
+                return false; // não pode
+            else
+                return true; // pode
+        }
+        public function podePromocao(string $id):bool
+        {
+            $resultado = $this->mysql->prepare("select * from tb_promocao where tb_loja_idtb_loja = ?");
+            $resultado->bind_param('s',$id);
+            $resultado->execute();
+            if($resultado->get_result()->num_rows > 0)
+                return false; // não pode
+            else
+                return true; // pode
+        }
+
+        public function remover(string $id):bool
+        {
+            if (($this->podePromocao($id)) AND ($this->podeFornecedor($id)) AND ($this->podeProduto($id)) AND ($this->podeVendedor($id)))
+            {
+                $resultado = $this->mysql->prepare
+                ("delete from tb_loja where idtb_loja = ?");
+                $resultado->bind_param('s', $id);
+                $resultado->execute();
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
         public function alterar($loja):void

@@ -17,12 +17,6 @@ require "../admin/verificaSessao.php";
     include '../menu/cabecalho.php';
 ?>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <div class="cOol-md-10 offset-md-4">
 <div class="card" style="width: 35rem;">
 
@@ -39,6 +33,7 @@ require "../admin/verificaSessao.php";
   </div>
 </div>
 </div>
+<br>
     <?php
         include '../menu/rodape.php';       
     ?>

@@ -21,11 +21,6 @@
     ?>
 
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
   <div class="panel panel-default" style="margin: 10px">
   <div class="panel-heading">
@@ -72,7 +67,7 @@
 
   </tbody>
 </table>
-
+<br>
     <?php
         include '../menu/rodape.php';
     ?>

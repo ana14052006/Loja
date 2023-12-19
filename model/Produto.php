@@ -6,15 +6,18 @@
         private $preco;
         private $foto;
         private $fornecedor;
+        private $loja;
+
       
 
-        function __construct($id,$nome,$preco,$foto,$fornecedor)
+        function __construct($id,$nome,$preco,$foto,$fornecedor,$loja)
         {
             $this->id = $id;
             $this->nome = $nome;
             $this->preco = $preco;
             $this->foto = $foto;
             $this->fornecedor = $fornecedor;
+            $this->loja = $loja;
 
         }
         
@@ -40,6 +43,9 @@
         public function setFornecedor($fornecedor){
             $this->fornecedor = $fornecedor;
         }
+        public function setLoja($loja){
+            $this->loja = $loja;
+        }
  
         public function getId()
         {
@@ -63,6 +69,10 @@
         public function getFornecedor()
         {
             return $this->fornecedor;
+        }
+        public function getLoja()
+        {
+            return $this->loja;
         }
 
        
